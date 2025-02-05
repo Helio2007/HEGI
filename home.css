@@ -5,14 +5,14 @@
     box-sizing: border-box;
 }
 
-/* NAVIGATION BAR */
+
 .navbar {
     background: #fff;
     padding: 20px 0;
     box-shadow: 2px -4px 13px 0px #000;
 }
 
-/* Layout: Logo + Menu */
+
 .navbar-container {
     display: flex;
     align-items: center;
@@ -21,7 +21,7 @@
     margin: 0 auto;
 }
 
-/* Logo */
+
 .logo-container {
     text-align: center;
 }
@@ -32,7 +32,7 @@
     border-radius: 50%;
 }
 
-/* Menu Box */
+
 .menu-box {
     text-align: center;
     padding: 15px;
@@ -41,14 +41,14 @@
     width: 50%;
 }
 
-/* Hegi Car Rental Title */
+
 .brand-title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-/* Menu */
+
 .menu {
     list-style: none;
     display: flex;
@@ -71,7 +71,7 @@
     color: #6c5ce7;
 }
 
-/* Car Section */
+
 .car-section {
     text-align: center;
     padding: 30px 0;
@@ -79,7 +79,7 @@
 
 
 .car-model {
-    font-size: 2px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -99,7 +99,7 @@
     }
 }
 .car-description {
-    font-size: 10pxpx;
+    font-size: 10px;
     font-weight: bold;
 }
 .car-title {
@@ -110,12 +110,28 @@
     margin-bottom: 50px;
 }
 
-/* Footer */
+
 .footer {
     text-align: center;
     padding: 20px;
     background: #f4f4f4;
     border-radius: 10px;
+    font-weight: bold;
 }
 
+.social ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social img {
+    width: 40px;
+    transition: transform 0.3s;
+}
+
+.social img:hover {
+    transform: scale(1.1);
+}
 
