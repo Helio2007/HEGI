@@ -32,6 +32,15 @@
     border-radius: 50%;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
 
 .menu-box {
     text-align: center;
@@ -70,26 +79,7 @@
 .menu a:hover {
     color: #6c5ce7;
 }
-.form {
-    box-shadow: 0 0 20px 2px #1a171780;
-    width: 64%;
-    padding: 10px 0;
-    margin: 0 auto;
-    border-radius: 6px;
-  }
-  .form input,
-  .form textarea {
-    width: 98%;
-    padding: 8px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #bfbbbb;
-    margin-bottom: 25px;
-  }
-  .form input[type="submit"] {
-    width: 30%;
-    border-radius: 10px;
-  }
+
 .btn {
     background-color: red;
     color: white;
@@ -101,8 +91,6 @@
     transition: all 0.3s ease;
     margin: 10px 10px;
     margin-top: 20px;
-    align-items: center;
-    
 }
 .btn:hover {
     background-color: white;
@@ -110,42 +98,45 @@
     border-color: red;
     transform: scale(1.1);
 }
-.text-center {
-    margin-top: 20px;
-    text-align: center;
-    margin-bottom: 10px;
-  }
 
-  .label {
-    margin-bottom: 10px;
+.car-section {
+    text-align: center;
+    padding: 30px 0;
+}
+
+
+.car-model {
+    font-size: 20px;
     font-weight: bold;
-  }
-  .img-responsive {
-    width: 100%;
-  }
-  .img-curve {
-    border-radius: 10px;
-  }
- 
-  .text-left {
-    text-align: left;
-  }
-  .text-right {
-    text-align: right;
-  }
-  .text-white {
-    color: #fff;
-  }
-  .bold {
+}
+
+
+.car-image-box img {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    transition: transform 0.3s, border 0.3s;
+}
+.car-image-box img:hover {
+    transform: scale(1.1);
+    border: 3px solid #333;
+}
+@media (max-width: 600px) {
+    .car-image {
+        grid-template-columns: 1fr;
+    }
+}
+.car-description {
+    font-size: 13px;
     font-weight: bold;
-  }
-#gmap_canvas {
-    width: 50%;
-    height: 400px;
-    border: none;
-    align-items: center;
-    margin-left: 230px;
-  }
+}
+.car-title {
+    font-size: 48px; 
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
 
 .footer {
     text-align: center;
@@ -153,20 +144,4 @@
     background: #f4f4f4;
     border-radius: 10px;
     font-weight: bold;
-}
-
-.social ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.social img {
-    width: 40px;
-    transition: transform 0.3s;
-}
-
-.social img:hover {
-    transform: scale(1.1);
 }
