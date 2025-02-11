@@ -24,6 +24,7 @@
 
 .logo-container {
     text-align: center;
+    border-radius: 10px;
 }
 
 .logo {
@@ -119,9 +120,9 @@
 }
 
 .car-item a {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Keep default text color */
-    display: block; /* Make the whole area clickable */
+    text-decoration: none; 
+    color: inherit;
+    display: block; 
 }
 
 .footer {

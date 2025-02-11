@@ -24,6 +24,7 @@
 
 .logo-container {
     text-align: center;
+    border-radius: 10px;
 }
 
 .logo {
@@ -148,14 +149,16 @@ main {
 }
 
 .supra {
-    width: 20;
-    animation: drive ;
+    width: 200;
+    animation: drive 3s ease-in-out infinite;
+    position: relative;
+    
 }
 
 
 @keyframes drive {
     0% {
-        left: -200px;
+        left: -300px;
         transform: scaleX(1); 
     }
     50% {
@@ -163,7 +166,7 @@ main {
         transform: scaleX(1.1) rotate(2deg); 
     }
     100% {
-        left: 100%;
+        left: 2500px;
         transform: scaleX(1);
     }
 }
