@@ -106,10 +106,7 @@ audio {
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.1);
     outline: none; 
-<<<<<<< HEAD
     filter: invert(1) hue-rotate(180deg);
-=======
->>>>>>> d82aa571b3d49dab94d1e6749f544b44edff2494
 }
 
 
