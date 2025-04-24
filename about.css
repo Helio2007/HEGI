@@ -3,169 +3,312 @@
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-}
-
-
-.navbar {
-    background: #fff;
-    padding: 20px 0;
-    box-shadow: 2px -4px 13px 0px #000;
-}
-
-
-.navbar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 85%;
-    margin: 0 auto;
-}
-
-
-.logo-container {
-    text-align: center;
-    border-radius: 10px;
-}
-
-.logo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-
-.menu-box {
-    text-align: center;
-    padding: 15px;
-    border-radius: 20px;
-    background: #f4f4f4;
-    width: 50%;
-}
-
-
-.brand-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-
-.menu {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.menu li {
-    display: inline;
-}
-
-.menu a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #333;
-    transition: color 0.3s;
-}
-
-.menu a:hover {
-    color: #6c5ce7;
-}
-
-body {
+  }
+  
+  body {
     font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 50px;
-}
-
-
-.audio-container {
-    background-color: #4c6ef5;
-    padding: 20px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
-    max-width: 600px;
-    margin: 20px auto;
-    transition: all 0.3s ease-in-out;
-    border: 2px solid rgba(255, 255, 255, 0.1); 
-    margin-top: 60px;
-}
-
-.audio-container:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.35);
-    background-color: #3b5bdb;
-}
-
-audio {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    outline: none; 
-    filter: invert(1) hue-rotate(180deg);
-}
-
-
-
-
-.about-section {
-    width: 80%;
-    margin: 80px auto 20px;
-    text-align: center;
-}
-
-.about-section h2 {
-    font-size: 36px;
-    color: #6c5ce7;
-    margin-bottom: 10px;
-}
-
-.about-section h3 {
-    font-size: 24px;
-    color: #6c5ce7;
-    margin-top: 20px;
-}
-
-.about-section p {
-    font-size: 18px;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.about-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.about-section ul li {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-
-body {
-    background: url('sky.jpg') no-repeat center center fixed;
+    background: url("sky.jpg") no-repeat center center fixed;
     background-size: cover;
-}
-
-.overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
+    color: #fff;
+    line-height: 1.6;
+  }
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-}
-
-/* Ensure content is above the overlay */
-.content {
+  }
+  
+  .content {
     position: relative;
     z-index: 1;
-}
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+    margin: 0 auto;
+  }
+  
+  .logo-container {
+    text-align: center;
+  }
+  
+  .logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+  }
+  
+  .menu-box {
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 30px;
+    background: #f4f4f4;
+    width: auto;
+    min-width: 50%;
+  }
+  
+  .brand-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+  }
+  
+  .menu li {
+    display: inline;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 15px;
+  }
+  
+  .menu a:hover {
+    color: #fff;
+    background-color: #8a2be2;
+  }
+  
+  /* About Section Styles */
+  .about-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .about-content {
+    background-color: rgba(25, 25, 40, 0.8);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+  }
+  
+  .about-section h2 {
+    font-size: 42px;
+    color: #a855f7;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .about-section h3 {
+    font-size: 28px;
+    color: #a855f7;
+    margin: 30px 0 15px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .about-section p {
+    font-size: 18px;
+    color: #f8f8f8;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .benefits-list li {
+    font-size: 18px;
+    color: #f8f8f8;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    font-size: 24px;
+    margin-right: 15px;
+    display: inline-block;
+    min-width: 30px;
+  }
+  
+  .benefit-text {
+    flex: 1;
+  }
+  
+  /* FAQ Styles */
+  .faq-container {
+    max-width: 800px;
+    margin: 30px auto;
+  }
+  
+  .faq-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border-left: 4px solid #a855f7;
+  }
+  
+  .faq-item:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .faq-question {
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .faq-question h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .faq-question i {
+    color: #a855f7;
+    transition: transform 0.3s ease;
+    font-size: 16px;
+  }
+  
+  .faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .faq-answer p {
+    margin: 0;
+    padding: 10px 0;
+    color: #f0f0f0;
+    text-align: left;
+  }
+  
+  .faq-item.active .faq-question {
+    background-color: rgba(168, 85, 247, 0.2);
+  }
+  
+  .faq-item.active .faq-question i {
+    transform: rotate(180deg);
+  }
+  
+  .faq-item.active .faq-answer {
+    max-height: 300px;
+    padding: 15px 20px 20px;
+  }
+  
+  /* Audio Container */
+  .audio-container {
+    background: linear-gradient(135deg, #8a2be2, #4c6ef5);
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    margin: 40px auto 20px;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .audio-container:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  }
+  
+  audio {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    outline: none;
+    filter: invert(1) hue-rotate(180deg);
+  }
+  
+  .contact-link {
+    color: #a855f7;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-bottom: 1px dotted #a855f7;
+    padding-bottom: 2px;
+  }
+  
+  .contact-link:hover {
+    color: #d8b4fe;
+    border-bottom: 1px solid #d8b4fe;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .navbar-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .menu-box {
+      width: 100%;
+    }
+  
+    .menu {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  
+    .about-content {
+      padding: 25px;
+    }
+  
+    .about-section h2 {
+      font-size: 32px;
+    }
+  
+    .about-section h3 {
+      font-size: 24px;
+    }
+  }
+  

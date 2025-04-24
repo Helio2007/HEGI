@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hegi Car Rental</title>
     <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -12,14 +13,11 @@
     <div class="content">
     <header class="navbar">
         <div class="container navbar-container">
-            
-            
             <div class="logo-container">
                 <a href="home.html">
                 <img src="HEGI.png" alt="Logo" class="logo">
-            </a>
+                </a>
             </div>
-
             
             <div class="menu-box">
                 <h1 class="brand-title">Hegi Car Rental</h1>  
@@ -37,37 +35,120 @@
         </div>
     </header>
 
-
     <main class="about-section">
-        <h2>About Us</h2>
-        <p>
-            Welcome to **Hegi Car Rental**, your trusted partner in luxury and affordable car rentals. We are dedicated to providing high-quality vehicles, excellent customer service, and an easy rental experience.
-        </p>
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>
+                Welcome to <strong>Hegi Car Rental</strong>, your trusted partner in luxury and affordable car rentals. We are dedicated to providing high-quality vehicles, excellent customer service, and an easy rental experience.
+            </p>
 
-        <h3>Our Mission</h3>
-        <p>
-            Our mission is to make car rental **affordable, reliable, and hassle-free**. Whether you need a car for business, travel, or a special occasion, we have the perfect vehicle for you.
-        </p>
+            <h3>Our Mission</h3>
+            <p>
+                Our mission is to make car rental <strong>affordable, reliable, and hassle-free</strong>. Whether you need a car for business, travel, or a special occasion, we have the perfect vehicle for you.
+            </p>
 
-        <h3>Why Choose Us?</h3>
-        <ul>
-            <li>🚗 A wide range of high-quality vehicles</li>
-            <li>💰 Competitive pricing with no hidden fees</li>
-            <li>⏳ Quick and easy booking process</li>
-            <li>🛠 24/7 customer support</li>
-        </ul>
+            <h3>Why Choose Us?</h3>
+            <ul class="benefits-list">
+                <li><span class="icon">🚗</span> <span class="benefit-text">A wide range of high-quality vehicles</span></li>
+                <li><span class="icon">💰</span> <span class="benefit-text">Competitive pricing with no hidden fees</span></li>
+                <li><span class="icon">⏳</span> <span class="benefit-text">Quick and easy booking process</span></li>
+                <li><span class="icon">🛠</span> <span class="benefit-text">24/7 customer support</span></li>
+            </ul>
 
-        <h3>Contact Us</h3>
-        <p>If you have any questions, feel free to <a href="contact.html">contact us</a> or visit our office.</p>
-        <br><br><div class="audio-container">
-            <audio controls>
-                <source src="voiceover.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
+            <!-- New FAQ Section -->
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What documents do I need to rent a car?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To rent a car, you'll need a valid driver's license, a credit card in your name, and a form of identification (passport or ID card). For international customers, an International Driving Permit may be required.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What is your fuel policy?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We operate a full-to-full fuel policy. This means you'll receive the car with a full tank and are expected to return it with a full tank. If the car is returned with less fuel, a refueling fee will be charged.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Is there a minimum age requirement?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, the minimum age to rent a standard car is 21 years. For luxury and premium vehicles, the minimum age is 25 years. Young driver surcharges may apply for drivers under 25.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Can I modify or cancel my reservation?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can modify or cancel your reservation up to 48 hours before the scheduled pickup time without any penalty. For changes or cancellations within 48 hours, a fee may apply.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Do you offer insurance coverage?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer various insurance options including Collision Damage Waiver (CDW), Theft Protection (TP), and Personal Accident Insurance (PAI). Basic insurance is included in all rentals, with options to upgrade for more comprehensive coverage.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Contact Us</h3>
+            <p>If you have any questions, feel free to <a href="contact.html" class="contact-link">contact us</a> or visit our office.</p>
+            
+            <div class="audio-container">
+                <audio controls>
+                    <source src="voiceover.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
         </div>
-        
     </main>
+    </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+  // Get all FAQ question elements
+  const faqQuestions = document.querySelectorAll(".faq-question")
 
+  // Add click event listener to each question
+  faqQuestions.forEach((question) => {
+    question.addEventListener("click", function () {
+      // Get the parent faq-item
+      const faqItem = this.parentElement
+
+      // Toggle the active class on the faq-item
+      faqItem.classList.toggle("active")
+
+      // If this item was activated, close all other items
+      if (faqItem.classList.contains("active")) {
+        faqQuestions.forEach((q) => {
+          const item = q.parentElement
+          if (item !== faqItem && item.classList.contains("active")) {
+            item.classList.remove("active")
+          }
+        })
+      }
+    })
+  })
+})
+
+    </script>
 </body>
 </html>
