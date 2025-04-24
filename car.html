@@ -38,38 +38,45 @@
     
     <section id="car" class="car">
         <h2 class="gallery-title">Galeria e Makinave</h2>
+        
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Cars</button>
+            <button class="filter-btn" data-filter="electric">Electric</button>
+            <button class="filter-btn" data-filter="gas">Gas/Petrol</button>
+        </div>
+        
         <div class="gallery-container">
-            <div class="car-item">
+            <div class="car-item" data-type="electric">
                 <a href="bmw-i7.html">
                 <img src="BMW.jpg" alt="BMW i7 M70">
                 <h3>BMW i7 M70</h3>
                 </a>
             </div>
-            <div class="car-item">
+            <div class="car-item" data-type="electric">
                 <a href="audi.html">
                 <img src="audi.jpg" alt="Audi e-tron GT">
                 <h3>Audi e-tron GT</h3>
                 </a>
             </div>
-            <div class="car-item">
+            <div class="car-item" data-type="electric">
                 <a href="mercedes.html">
                 <img src="mercedes.jpg" alt="Mercedes EQS">
                 <h3>Mercedes EQS</h3>
             </a>
             </div>
-             <div class="car-item">
+             <div class="car-item" data-type="gas">
                 <a href="toyota.html">
                 <img src="toyota.jpg" alt="Toyota Supra">
                 <h3>Toyota Supra</h3>
             </a>
             </div>
-            <div class="car-item">
+            <div class="car-item" data-type="gas">
                 <a href="porsche.html">
                 <img src="porsche911.jpg" alt="porsche911">
                 <h3>Porsche 911</h3>
             </a>
             </div>
-            <div class="car-item">
+            <div class="car-item" data-type="gas">
                 <a href="golf.html">
                 <img src="golf 6.jpg" alt="golf 6">
                 <h3>Golf 6</h3>
@@ -84,5 +91,40 @@
         </div>
     </section>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+  // Get all filter buttons and car items
+  const filterButtons = document.querySelectorAll(".filter-btn")
+  const carItems = document.querySelectorAll(".car-item")
+
+  // Add click event to each filter button
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      // Remove active class from all buttons
+      filterButtons.forEach((btn) => btn.classList.remove("active"))
+
+      // Add active class to clicked button
+      this.classList.add("active")
+
+      // Get filter value
+      const filterValue = this.getAttribute("data-filter")
+
+      // Show/hide car items based on filter
+      carItems.forEach((item) => {
+        if (filterValue === "all") {
+          item.style.display = "block"
+        } else {
+          if (item.getAttribute("data-type") === filterValue) {
+            item.style.display = "block"
+          } else {
+            item.style.display = "none"
+          }
+        }
+      })
+    })
+  })
+})
+
+    </script>
 </body>
 </html>
