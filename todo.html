@@ -67,16 +67,26 @@
         }
         
         .pending {
-            background-color: #FFA500; /* Orange */
+            background-color: #FFA500;
         }
         
         .completed {
-            background-color: #4CAF50; /* Green */
+            background-color: #4CAF50; 
         }
         
         .failed {
-            background-color: #F44336; /* Red */
+            background-color: #F44336; 
         }
+        .low-priority {
+    border-left: 6px solid green;
+        }
+.medium-priority {
+    border-left: 6px solid orange;
+}
+.high-priority {
+    border-left: 6px solid red;
+}
+
         
         .todo-actions {
             display: flex;
@@ -160,9 +170,15 @@ body {
         <h2 class="todo-title">Rental Tasks To-Do List</h2>
         
         <form class="todo-form">
-            <input type="text" class="todo-input" placeholder="Add a new task...">
+            <input type="text" class="todo-input" placeholder="Add a new task..." />
+            <select class="priority-select">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
             <button type="submit" class="add-btn">Add Task</button>
         </form>
+        
         
         <ul class="todo-list">
             <!-- Tasks will be added here dynamically -->
@@ -188,21 +204,20 @@ body {
             const input = document.querySelector('.todo-input');
             const list = document.querySelector('.todo-list');
             
-            // Load tasks from localStorage
+    
             loadTasks();
             
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const taskText = input.value.trim();
                 
-                if (taskText) {
-                    addTask(taskText);
-                    input.value = '';
-                    saveTasks();
-                }
+                const priority = document.querySelector('.priority-select').value;
+                addTask(taskText, 'pending', priority);
+              saveTasks();
+
             });
             
-            // Event delegation for delete buttons
+            
             list.addEventListener('click', function(e) {
                 if (e.target.classList.contains('delete-btn')) {
                     const listItem = e.target.closest('.todo-item');
@@ -212,7 +227,6 @@ body {
                     }
                 }
                 
-                // Status button functionality
                 if (e.target.classList.contains('status-btn')) {
                     const listItem = e.target.closest('.todo-item');
                     const statusBtn = e.target;
@@ -234,39 +248,43 @@ body {
                 }
             });
             
-            function addTask(text, status = 'pending') {
-                const li = document.createElement('li');
-                li.className = `todo-item ${status}`;
-                
-                li.innerHTML = `
-                    <span>${text}</span>
-                    <div class="todo-actions">
-                        <button class="status-btn">${status === 'pending' ? 'Complete' : status === 'completed' ? 'Failed' : 'Pending'}</button>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-                `;
-                
-                list.appendChild(li);
-            }
+            function addTask(text, status = 'pending', priority = 'low') {
+    const li = document.createElement('li');
+    li.className = `todo-item ${status} ${priority}-priority`;
+
+    li.innerHTML = `
+        <span>${text}</span>
+        <div class="todo-actions">
+            <button class="status-btn">${status === 'pending' ? 'Complete' : status === 'completed' ? 'Failed' : 'Pending'}</button>
+            <button class="delete-btn">Delete</button>
+        </div>
+    `;
+
+    list.appendChild(li);
+}
+
             
-            function saveTasks() {
-                const tasks = [];
-                document.querySelectorAll('.todo-item').forEach(item => {
-                    tasks.push({
-                        text: item.querySelector('span').textContent,
-                        status: item.classList.contains('completed') ? 'completed' : 
-                                item.classList.contains('failed') ? 'failed' : 'pending'
-                    });
-                });
-                localStorage.setItem('todoTasks', JSON.stringify(tasks));
-            }
-            
-            function loadTasks() {
-                const tasks = JSON.parse(localStorage.getItem('todoTasks')) || [];
-                tasks.forEach(task => {
-                    addTask(task.text, task.status);
-                });
-            }
+function saveTasks() {
+    const tasks = [];
+    document.querySelectorAll('.todo-item').forEach(item => {
+        tasks.push({
+            text: item.querySelector('span').textContent,
+            status: item.classList.contains('completed') ? 'completed' : 
+                    item.classList.contains('failed') ? 'failed' : 'pending',
+            priority: item.classList.contains('high-priority') ? 'high' :
+                      item.classList.contains('medium-priority') ? 'medium' : 'low'
+        });
+    });
+    localStorage.setItem('todoTasks', JSON.stringify(tasks));
+}
+
+function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem('todoTasks')) || [];
+    tasks.forEach(task => {
+        addTask(task.text, task.status, task.priority);
+    });
+}
+
         });
     </script>
 </body>

@@ -19,7 +19,8 @@
             </a>
             </div>
 
-            
+            <button id="dark-mode-toggle" class="btn">🌙 Dark Mode</button>
+
             <div class="menu-box">
                 <h1 class="brand-title">Hegi Car Rental</h1>  
                 <nav class="menu-container">
@@ -84,5 +85,15 @@
         </ul>
     </div>
 
+<script>
+    const toggleButton = document.getElementById('dark-mode-toggle');
+const body = document.body;
+
+toggleButton.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+
+});
+</script>
 </body>
 </html>
