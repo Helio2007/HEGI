@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hegi Car Rental</title>
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
   
     <header class="navbar">
         <div class="container navbar-container">
-            
-            
             <div class="logo-container">
-                <a href="home.html"></a>
-                <img src="HEGI.png" alt="Logo" class="logo">
-            </a>
+                <a href="home.html">
+                    <img src="HEGI.png" alt="Logo" class="logo">
+                </a>
             </div>
 
-            <button id="dark-mode-toggle" class="btn">🌙 Dark Mode</button>
+            <button id="dark-mode-toggle" class="btn dark-mode-btn">
+                <i class="fas fa-moon"></i> Dark Mode
+            </button>
 
             <div class="menu-box">
                 <h1 class="brand-title">Hegi Car Rental</h1>  
@@ -37,13 +37,45 @@
         </div>
     </header>
 
+    <!-- Special Offer Banner with Countdown -->
+    <div class="special-offer-banner">
+        <div class="offer-content">
+            <div class="offer-text">
+                <h3>Special Summer Offer!</h3>
+                <p>Get 20% off on all luxury car rentals. Limited time only!</p>
+            </div>
+            <div class="countdown-container">
+                <p>Offer ends in:</p>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+            <button class="claim-offer-btn">Claim Offer Now</button>
+        </div>
+    </div>
   
     <section class="car-section">
         <h3 class="car-title">Pershendetje</h3>
-        <h1 class="car-model">Toyota GR Supra ~ Ikona e Performancës</h2>
+        <h1 class="car-model">Toyota GR Supra ~ Ikona e Performancës</h1>
         
         <div class="car-image-box">
             <img src="toyota.jpg" alt="Foto makines" class="car-image">
+            <div class="deal-badge">Hot Deal!</div>
         </div>
 
         <strong class="car-description">Toyota GR Supra është një makinë sportive e fuqishme, e dizajnuar për të ofruar një përvojë të jashtëzakonshme në rrugë dhe në pistë.
@@ -57,10 +89,11 @@
     </section>
     
     <section class="car-section">
-        <h1 class="car-model">BMW i7 M70 xDrive ~ Luks dhe Performancë Elektrike</h2>
+        <h1 class="car-model">BMW i7 M70 xDrive ~ Luks dhe Performancë Elektrike</h1>
         
         <div class="car-image-box">
             <img src="BMW.jpg" alt="Foto makines" class="car-image">
+            <div class="deal-badge">Limited Offer!</div>
         </div>
 
         <strong class="car-description">BMW prezanton modelin më të ri, BMW i7 M70 xDrive, një sedan luksoz plotësisht elektrik me teknologjinë më të avancuar dhe performancë të lartë.
@@ -86,14 +119,76 @@
     </div>
 
 <script>
-    const toggleButton = document.getElementById('dark-mode-toggle');
-const body = document.body;
+    document.addEventListener("DOMContentLoaded", () => {
+  // Dark mode toggle functionality
+  const toggleButton = document.getElementById("dark-mode-toggle")
+  const body = document.body
 
-toggleButton.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
+  // Check if user previously enabled dark mode
+  const isDarkMode = localStorage.getItem("darkMode") === "enabled"
 
+  // Set initial state
+  if (isDarkMode) {
+    body.classList.add("dark-mode")
+    toggleButton.innerHTML = '<i class="fas fa-sun"></i> Light Mode'
+  }
 
-});
+  toggleButton.addEventListener("click", () => {
+    // Toggle dark mode
+    body.classList.toggle("dark-mode")
+
+    // Update button text
+    if (body.classList.contains("dark-mode")) {
+      toggleButton.innerHTML = '<i class="fas fa-sun"></i> Light Mode'
+      localStorage.setItem("darkMode", "enabled")
+    } else {
+      toggleButton.innerHTML = '<i class="fas fa-moon"></i> Dark Mode'
+      localStorage.setItem("darkMode", "disabled")
+    }
+  })
+
+  // Countdown timer functionality
+  // Set the date we're counting down to (7 days from now)
+  const countdownDate = new Date()
+  countdownDate.setDate(countdownDate.getDate() + 7)
+
+  function updateCountdown() {
+    // Get current date and time
+    const now = new Date().getTime()
+
+    // Find the distance between now and the countdown date
+    const distance = countdownDate - now
+
+    // Time calculations for days, hours, minutes and seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+
+    // Display the result
+    document.getElementById("days").innerHTML = days.toString().padStart(2, "0")
+    document.getElementById("hours").innerHTML = hours.toString().padStart(2, "0")
+    document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, "0")
+    document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, "0")
+
+    // If the countdown is finished, show expired message
+    if (distance < 0) {
+      clearInterval(countdownInterval)
+      document.querySelector(".countdown-container").innerHTML = "<p>This offer has expired!</p>"
+    }
+  }
+
+  // Update the countdown every 1 second
+  updateCountdown() // Run once immediately
+  const countdownInterval = setInterval(updateCountdown, 1000)
+
+  // Claim offer button functionality
+  const claimButton = document.querySelector(".claim-offer-btn")
+  claimButton.addEventListener("click", () => {
+    alert("Congratulations! Your 20% discount code is: SUMMER20")
+  })
+})
+
 </script>
 </body>
 </html>
